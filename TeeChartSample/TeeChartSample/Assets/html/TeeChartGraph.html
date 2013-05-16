@@ -9,14 +9,25 @@
 	function draw() {
   	var Chart1=new Tee.Chart("canvas");
 
-  	Chart1.addSeries(new Tee.Line([5,3,2,7,1]) );
-  	Chart1.addSeries(new Tee.Line([4,4,8,2,9]) ).visible=true;
+	var Series1 = new Tee.Line([5,3,2,7,1]);
+	var Series2 = new Tee.Line([4,4,8,2,9]);
+	
+	Series1.drawLine=false;
 
-  	Chart1.series.items[0].format.stroke.size=3;
+	Series1.pointer.format.shadow.visible=false;
+	Series1.pointer.visible=true;
+	Series1.pointer.format.image.url="../images/graph_04_seiriyotei.png";
+	Series1.pointer.format.stroke.gradient.visible=false;
+
+	Series1.format.shadow.visible=false;
+  
+	Chart1.addSeries(Series1);
+	Chart1.addSeries(Series2);
 
   	Chart1.axes.left.format.stroke.fill="red";
-
+	Chart1.legend.format.image.url="../images/graph_04_seiriyotei.png";
   	Chart1.title.text="TeeChart for JavaScript";
+
   	Chart1.title.format.font.style="18px Verdana";
   	Chart1.draw();
 	}

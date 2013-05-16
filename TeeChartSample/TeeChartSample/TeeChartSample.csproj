@@ -61,6 +61,7 @@
   <ItemGroup>
     <Folder Include="Assets\lib\" />
     <Folder Include="Assets\html\" />
+    <Folder Include="Assets\images\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\lib\.DS_Store" />
@@ -693,5 +694,6 @@
     <AndroidAsset Include="Assets\lib\TeeChart\src\farbtastic\marker.png" />
     <AndroidAsset Include="Assets\lib\TeeChart\src\farbtastic\mask.png" />
     <AndroidAsset Include="Assets\lib\TeeChart\src\farbtastic\wheel.png" />
+    <AndroidAsset Include="Assets\images\graph_04_seiriyotei.png" />
   </ItemGroup>
 </Project>
