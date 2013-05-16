@@ -1,0 +1,294 @@
+===============================================
+ TeeChart for JavaScript
+ Copyright (c) 1995-2012 by Steema Software.
+ All Rights Reserved.
+ Please see license.txt for usage conditions.
+
+ http://www.steema.com
+ email: info@steema.com
+ support forum: http://support.steema.com
+
+Please send feedback to:
+http://www.teechart.net/support/index.php
+===============================================
+
+**********************************************
+ Please open the release.htm page for an 
+ alternative view of the complete
+ release information:
+
+ demos/release.htm
+
+**********************************************
+
+===============================================
+Release Notes 14th December 2012
+TeeChart for JavaScript v1.4
+Sourcecode version 2012.12.14.1.4
+===============================================
+
+Please send feedback to:
+http://www.teechart.net/support/index.php
+===============================================
+
+New Features:
+
+- WebGL 3D support using Three.js library. See demo
+- Tee.Surface series style. (Requires WebGL™) See demo
+- Tee.Polar series style. See demo
+- Tee.ColorGrid series (Heatmap). See demo
+
+Geo Maps:
+
+- Tee.Map series for HTML5 Canvas. See demo
+- More maps included (Europe, Africa, Asia, Australia, South America, etc)
+- 3D Maps using WebGL™, and HTML5 GeoLocation API. See demo
+
+New scripts:
+
+- teechart-3d.js: Includes WebGL™ and Three.js support, 3D Surface series.
+
+Other:
+
+- CSS3 Animations. See demo
+- New Chart Generator example, online chart creator. Run
+- New Rectangle class "offset" function (x,y)
+- Updated loadJSON example supporting multiple series, x values, colors, etc. See demo
+- Mouse wheel support to zoom chart data (Chart1.zoom.wheel=true). Default false.
+- New Chart1.zoom.keepAspect property (default false), to maintain "width to height" proportions on zooming.
+- New Bar and HorizBar series stacked "side" mode (for 3D only).
+- New series pointer style modes (3D only): cone, sphere and cylinder.
+- Tee.Animation boolean "loop" property (default false).
+- Unit and Coverage testing, using QUnit and Blanket.js.  Run
+- Refactoring and JSHint conformance.
+
+Fixes:
+
+- Safari / WebKit exception when drawing dashed lines
+- Fixed trunc of first axis label with very small float numbers.
+- Fixed display of Pie slices with negative values.
+- Improved clipping of chart data rectangle area, using chart axes stroke size.
+- Several fixes for Internet Explorer 8.
+
+
+===============================================
+Release Notes 9th November 2012
+TeeChart for JavaScript v1.3
+Sourcecode version 2012.11.09.1.3
+===============================================
+
+
+New Features:
+
+-Tee.Data script for multi-dimensional charting and pivot-tables. See Tutorial and demos.
+-Tee.Map geo charting (World, Europe, USA States, etc) for SVG and Canvas. See demo
+-Initial support for Microsoft Windows 8 RT JavaScript applications
+-Microsoft TypeScript definitions for TeeChart. See Demo. See Definitions.
+
+New Features in Tee.Animations:
+
+-New Tee.SeriesAnimation "kind" styles. See demo
+-Multiple-series now supported in Tee.SeriesAnimation.
+-New sequential/parallel animations. See demo
+-New Animation "mode" property (default "linear", can be "exponential")
+-New FadeAnimation and MarksAnimation objects. See demo
+
+New Features in Tee.ToolTip:
+
+-New "render" property (default "dom") to switch between using canvas-painted tips or DOM HTML divs.
+-Embedding charts inside mouse tips. See demo
+
+New Features in Chart Legend:
+
+-Two-column support, and left/right text alignment per column
+-New Legend.margin property (default 5, percentage of legend size).
+-New Legend.symbol.style property (default "rectangle", can be "line")
+
+New Features in Tee.Slider:
+
+-Slider (scrollbar) now supports mouse click/touch at scrollbar background (clickAt function)
+
+New Features in Gauges:
+
+-Support for multiple gauge "hands" (Gauge1.hands[] property, and addHand function)
+-New Gauge1.animate property to perform animations when Gauge1.value is changed using setValue
+-New Tee.Clock object to create live watches using Tee.Gauge. See demo
+
+-New Gauge1.ticksBack and minorBack "radius" property (default 0).
+-New Gauge1.minor.shape property (default "", can be "ellipse")
+-New Gauge1.format.padding property (default 0.5%)
+
+Other new Features:
+
+-Chart.Zoom.onreset event (called after dragging up-left)
+-Axis.Labels.wordWrap property (default "no", can be "auto" / "yes" / "no")
+-Axis.Labels.valueFormat property, to use native toLocaleString to format numeric labels
+-Axis.Labels.ongetlabel event to allow custom text and formatting for individual labels. See demo
+-Series.Marks.showZero property to not paint zero-value marks. (default true)
+-Improved "null" and NaN Series points support (null / NaN points aren't displayed).
+-Series.isNull(index) function, returns true if index'th point is null
+-Series.valueFormat property, to use native toLocaleString to format numeric marks
+-Series.markPos(index, point) function, returns p.x and p.y position for index'th mark
+-Chart.Axes.transparency property (default 0, from 0 to 100%)
+-Bar and HorizBar series barStyle property (default "bar", can be "ellipse" or "line")
+-Bar and HorizBar series Marks.location property (default "end", can be "center" or "start")
+
+Changes:
+
+-Animation objects have been moved to "teechart-animations.js" script.
+-Improved support for Internet Explorer v8 and v7 using ExCanvas
+-Removed tooltip.js script. It is now included inside teechart.js.
+
+Fixes:
+
+-Format.Font transparency fixed (when drawing text over already-transparent content)
+
+===============================================
+Release Notes 30th September 2012
+TeeChart for JavaScript v1.2
+Sourcecode version 2012.09.30.1.2
+===============================================
+
+New Features:
+-------------
+
+-Embarcadero HTML5 Builder supported.
+-Visual Studio 2012 supported.
+-Axis Labels new "ongetlabel" event to supply custom label texts and formatting. (See axes/customlabels.htm demo).
+-Bar and HorizBar series: New "offset" percentage property to customize bar positions. (Series1.offset=25;)
+-Canvas dashed lines, now supported in Chrome/Canary browsers (Chart1.panel.format.border.dash=[2,2];).
+-New Title and Footer "expand" boolean property, to align title backgrounds to panel (See basic/TitleFooter.htm demo).
+
+Changes:
+--------
+
+-Tee.Chart "onDraw" event method has been renamed to "ondraw" (all lowercase).
+-Bar and HorizBar series: default "barSize" value changed from 100% to 70%.
+
+Fixes:
+------
+
+-Bar and HorizBar series, fixed several bugs using properties: "useOrigin", "sideMargins".</br>
+-Axis Grid "centered" did not paint the first grid line (the one closer to axis minimum).</br>
+-Right-aligned text now painting correctly positioned.
+
+
+===============================================
+Release Notes 26th June 2012
+TeeChart for JavaScript v1.1
+Sourcecode version 2012.06.1.1
+===============================================
+
+New Features:
+-------------
+
+1. JQuery Plugin: Initial version of a JQuery plugin.
+
+2. New Series Styles:
+   - Volume
+   - Gantt
+   - Gauges
+
+3. Node.js: Source code teechart.js is node-compatible (identical at client and server).
+
+4. New properties:
+
+   - Format.Gradient.offset (x y) (default 0,0) Applies to radial gradients only 
+     (direction="radial")
+   - DragTool.series (default null) Defines a single series to drag. When null, all series 
+     can be dragged.
+   - CursorTool.followMouse (boolean) (default true) Moving the mouse also moves the cursor.
+   - ToolTip.autoRedraw (boolean) (default true) When the tooltip hides automatically, also 
+     repaint the chart.
+   - SeriesAnimation.kind (string) (default "axis") Additional animation styles ("left", "top" 
+     or "axis")
+   - Chart.Zoom.direction (string) (default "both") Allow zoom in "horizontal", "vertical" or 
+     "both" directions.
+   - Axis.custom (boolean) (default false) Enables unlimited custom axis in the same chart, 
+     using the new Axes "add" method.
+   - Axis.start (percent) (default 0) Defines the starting position of axis, as percentage on 
+     chart width or height.
+   - Axis.end (percent) (default 100) Defines the ending position of axis, as percentage on 
+     chart width or height.
+   - CustomSeries.hover.line (boolean) (default false) When true, enables mouse hover effect 
+     on lines connecting series pointers.
+
+5. Other changes:
+
+   - Format.ellipse now uses arc method instead of bezierCurve.
+   - Improvements in date-time axis labelling.
+   - Axis handling of NaN and -NaN values.
+   - Fixed bug (endless loop) when painting axis labels with very small data values.
+   - Legend highlights items on mouse over.
+   - Mouse capture on Firefox (allows scrolling or zooming chart dragging the mouse outside 
+     chart bounds).
+
+6. New functions:
+
+   - function pointInLine(point, lineStart, lineEnd, tolerance)
+     Returns true when point {xy} is over line segment.
+
+   - Chart1.axes.add(horiz {true or false}, other {true of false})
+     Adds a new custom axis (horizontal or vertical) at left/bottom or top/left edge.
+
+
+===============================================
+Release Notes 16th April 2012
+TeeChart for Javascript v1.0
+Sourcecode version 2012.04.1.0
+===============================================
+Please send feedback to:
+http://www.teechart.net/support/index.php
+===============================================
+
+This first pre-release version of the TeeChart for Javascript library,
+written in 100% Javascript is intended for compatibility with all environments
+that support the HTML5 Canvas.
+
+First release version. Feature overview
+----------------------------------------
+
+Main features
+
+TeeChart for Javascript is a 100% javascript TeeChart library that plots charts to all compatible
+browsers in native javascript format using the HTML5 Canvas.
+
+TeeChart for Javascript is available as a standalone product and as an export format across the 
+TeeChart product range. Both formats enable HTML5 live in-browser charts as a visualisation format 
+for a selected range of TeeChart data series types. Other series types, not supported in the 
+dynamic model, may be output to browsers as static HTML5 charts. See www.w3.org/TR/html5 for more 
+details of the HTML5 specfication.
+
+Overview
+
+TeeChart for Javascript Live charts support zoom and scroll, a variety of interactive mouse-click 
+events and finger-touch sensitivity on mobile devices.
+
+Supported Series Types
+
+TeeChart Series Types currently supporting live-format html5 export are:
+	
+Bar
+Horizbar
+Line
+SmoothLine
+Pie
+Donut
+Area
+HorizArea
+Point
+Bubble
+Candle (OHLC) 
+
+===============================================
+Release Notes 27th March 2012
+TeeChart for Javascript v1.0
+Sourcecode version 2012.0.0.1
+===============================================
+Please send feedback to:
+http://www.teechart.net/support/index.php
+===============================================
+
+This first pre-release version of the TeeChart for Javascript library,
+written in 100% Javascript is intended for compatibility with all environments
+that support the HTML5 Canvas.

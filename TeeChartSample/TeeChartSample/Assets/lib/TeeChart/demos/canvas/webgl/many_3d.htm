@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+<title>TeeChart 3D Charting for JavaScript Three.js WebGL&trade; Basic Example</title>
+
+<script src="threejs/three.min.js" type="text/javascript"></script>
+
+<script src="threejs/Detector.js" type="text/javascript"></script>
+<script src="threejs/TrackballControls.js" type="text/javascript"></script>
+
+<script src="fonts/helvetiker_font/helvetiker_regular.typeface.js"></script>
+
+<script src="../../../src/teechart.js" type="text/javascript"></script>
+<script src="../../../src/teechart-3d.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+"use strict";
+
+var three1, three2, three3,
+    Chart1, Chart2, Chart3;
+
+function draw() {
+
+  three1 = new Tee.Three("canvas1");
+  Chart1 = new Tee.Chart(three1);
+  Chart1.addSeries(new Tee.Bar([5,3,2,7,1] , ["One", "Two", "Three", "Four", "Five" ]) );
+
+  three2 = new Tee.Three("canvas2");
+  Chart2 = new Tee.Chart(three2);
+  Chart2.addSeries(new Tee.Pie([5,3,2,7,1] , ["One", "Two", "Three", "Four", "Five" ]) );
+
+  three3 = new Tee.Three("canvas3");
+  Chart3 = new Tee.Chart(three3);
+  Chart3.addSeries(new Tee.Area([5,3,2,7,1] , ["One", "Two", "Three", "Four", "Five" ]) );
+
+  // Valid webGL ?
+
+  if (three1.isEnabled()) {
+    Chart1.draw();
+    Chart2.draw();
+    Chart3.draw();
+    animate();
+  }
+  else
+  {
+    // Show message (WebGL not available) :
+    Detector.addGetWebGLMessage();
+
+    // Disable WebGL and use HTML5 2D Canvas:
+    three1.setEnabled(false, Chart1);
+    three2.setEnabled(false, Chart2);
+    three3.setEnabled(false, Chart3);
+  }
+
+  // Loop
+  function animate() {
+    three1.update();
+    three2.update();
+    three3.update();
+    requestAnimationFrame( animate );
+  }
+}
+
+function enableWebGL(enable) {
+  three1.setEnabled(enable, Chart1);
+  three2.setEnabled(enable, Chart2);
+  three3.setEnabled(enable, Chart3);
+}
+
+</script>
+</head>
+
+<body onload="draw()">
+
+<input type="checkbox" id="webgl" onclick="enableWebGL(this.checked);" checked><label for="webgl">Use WebGL &trade;</label>
+&nbsp;&nbsp; Drag mouse and wheel to rotate, pan and zoom.
+<br/>
+
+ <center>
+  <canvas id="canvas1" style="background:#666677" width="800" height="500"></canvas>
+  <canvas id="canvas2" style="background:#666677" width="800" height="500"></canvas>
+  <canvas id="canvas3" style="background:#666677" width="800" height="500"></canvas>
+ </center>
+
+</body>
+</html>
