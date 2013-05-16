@@ -64,7 +64,7 @@ namespace TeeChartSample
 		{
 			
 			// aapt resource value: 0x7f060000
-			public const int myButton = 2131099648;
+			public const int webView = 2131099648;
 			
 			static Id()
 			{
