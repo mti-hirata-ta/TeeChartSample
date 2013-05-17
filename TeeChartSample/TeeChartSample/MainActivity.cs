@@ -9,6 +9,8 @@ using Android.Webkit;
 
 namespace TeeChartSample
 {
+
+
 	[Activity (Label = "TeeChartSample", MainLauncher = true)]
 	public class Activity1 : Activity
 	{
@@ -32,12 +34,6 @@ namespace TeeChartSample
 
 
 		public class GraphData : Java.Lang.Object{
-
-//			private Context context;
-
-//			public GraphData(Context context){
-//				this.context = context;
-//			}
 
 			public void TestMethod(){
 			}

@@ -9,8 +9,21 @@
 	function draw() {
   	var Chart1=new Tee.Chart("canvas");
 
-	var Series1 = new Tee.Line([5,3,2,7,1]);
-	var Series2 = new Tee.Line([4,4,8,2,9]);
+	//date
+	var dd = new Date();
+	var day = dd.getDate();
+	//体温
+	var point = new Tee.PointXY();
+	point.data.values=[35.51,36.45,37.23,36.85,36.43,36.57,36.24,36.77,36.84];
+	point.data.x=[day,day+1,day+2,day+3,day+4,day+5,day+6,day+7,day+8];
+	//アイコン
+	var Series1 = new Tee.PointXY();
+	Series1.data.values=[43,43,43];
+	Series1.data.x=[day,day+4,day+8];
+	
+  	
+<!--var Series1 = new Tee.Line([5,3,2,7,1]);-->
+<!--	var Series2 = new Tee.Line([4,4,8,2,9]);-->
 	
 	Series1.drawLine=false;
 
@@ -18,16 +31,17 @@
 	Series1.pointer.visible=true;
 	Series1.pointer.format.image.url="../images/graph_04_seiriyotei.png";
 	Series1.pointer.format.stroke.gradient.visible=false;
-  	
   	Series1.pointer.format.stroke.fill="clear";
   	
-	Chart1.addSeries(Series1);
-	Chart1.addSeries(Series2);
+<!--	Chart1.addSeries(Series1);-->
+<!--	Chart1.addSeries(Series2);-->
+
+	Chart1.addSeries(point).visible = true;
+  	Chart1.addSeries(Series1).visible = true;
 
   	Chart1.axes.left.format.stroke.fill="red";
-	Chart1.legend.format.image.url="../images/graph_04_seiriyotei.png";
+  	
   	Chart1.title.text="TeeChart for JavaScript";
-
   	Chart1.title.format.font.style="18px Verdana";
   	Chart1.draw();
 	}
