@@ -28,16 +28,6 @@ namespace TeeChartSample
 			// JavaScriptを使えるようにする
 			webView.Settings.JavaScriptEnabled = true;
 			webView.LoadUrl ("file:///android_asset/html/TeeChartGraph.html");
-//			GraphData graphData = new GraphData (this);
-//			webView.AddJavascriptInterface (graphData, "graphData");
 		}
-
-
-		public class GraphData : Java.Lang.Object{
-
-			public void TestMethod(){
-			}
-		}
-
 	}
 }

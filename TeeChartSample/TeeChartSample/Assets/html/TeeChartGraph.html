@@ -13,34 +13,30 @@
 	var dd = new Date();
 	var day = dd.getDate();
 	//体温
-	var point = new Tee.PointXY();
-	point.data.values=[35.51,36.45,37.23,36.85,36.43,36.57,36.24,36.77,36.84];
-	point.data.x=[day,day+1,day+2,day+3,day+4,day+5,day+6,day+7,day+8];
-	point.drawLine = true;
+	var Temperature = new Tee.PointXY();
+	Temperature.data.values=[35.51,36.45,37.23,36.85,36.43,36.57,36.24,36.77,36.84];
+	Temperature.data.x=[day,day+1,day+2,day+3,day+4,day+5,day+6,day+7,day+8];
+	Temperature.drawLine = true;
 	//アイコン
-	var Series1 = new Tee.PointXY();
-	Series1.data.values=[43,43,43];
-	Series1.data.x=[day,day+4,day+8];
-	
+	var Icon = new Tee.PointXY();
+	Icon.data.values=[43,43,43];
+	Icon.data.x=[day,day+4,day+8];
+	//アイコンに線を引く
+	Icon.drawLine=false;
+
+	Icon.pointer.format.shadow.visible=false;
+	Icon.pointer.visible=true;
+	//プロットに画像を設定
+	Icon.pointer.format.image.url="../images/graph_04_seiriyotei.png";
+	Icon.pointer.format.stroke.gradient.visible=false;
+	//画像の枠線を透明にする
+  	Icon.pointer.format.stroke.fill="transparent";
+  	Icon.pointer.format.stroke.gradient.visible=false;
   	
-<!--var Series1 = new Tee.Line([5,3,2,7,1]);-->
-<!--	var Series2 = new Tee.Line([4,4,8,2,9]);-->
-	
-	Series1.drawLine=false;
-
-	Series1.pointer.format.shadow.visible=false;
-	Series1.pointer.visible=true;
-	Series1.pointer.format.image.url="../images/graph_04_seiriyotei.png";
-	Series1.pointer.format.stroke.gradient.visible=false;
-  	Series1.pointer.format.stroke.fill="transparent";
-  	Series1.pointer.format.stroke.gradient.visible=false;
-  	
-
-	Chart1.addSeries(point).visible = true;
-  	Chart1.addSeries(Series1).visible = true;
-
+	//グラフ全体の設定
+	Chart1.addSeries(Temperature).visible = true;
+  	Chart1.addSeries(Icon).visible = true;
   	Chart1.axes.left.format.stroke.fill="red";
-  	
   	Chart1.title.text="TeeChart for JavaScript";
   	Chart1.title.format.font.style="18px Verdana";
   	Chart1.draw();
